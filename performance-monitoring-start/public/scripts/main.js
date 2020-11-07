@@ -49,6 +49,7 @@ function isUserSignedIn() {
   return !!firebase.auth().currentUser;
 }
 
+// ToDo: implement save method of Firebase.
 // Saves a new message on the Cloud Firestore.
 function saveMessage(messageText) {
   // Add a new message entry to the Firebase database.
@@ -61,6 +62,15 @@ function saveMessage(messageText) {
     console.error('Error writing new message to Firebase Database', error);
   });
 }
+
+// ToDo: Implement remove message of Firebase.
+// Removes a message from the Cloud Firestore.
+function removeMessage() {
+
+}
+
+// ToDo: Implement update message of Firebase. 
+// Updates a message from the Cloud Firestore.
 
 // Loads chat messages history and listens for upcoming ones.
 function loadMessages() {
@@ -92,16 +102,16 @@ function saveImageMessage(file) {
     timestamp: firebase.firestore.FieldValue.serverTimestamp()
   }).then(function(messageRef) {
 
-    // TODO: Create custom trace to monitor image upload.
+    // Create custom trace to monitor image upload.
     const trace = firebase.performance().trace('saveImageMessage');
 
-    // TODO: Record image size.
+    // Record image size.
     trace.putMetric('imageSize', file.size);
 
-    // TODO: Record image MIME type.
+    // Record image MIME type.
     trace.putAttribute('imageType', file.type);
 
-    // TODO: Start the “timer” for the custom trace.
+    // Start the “timer” for the custom trace.
     trace.start();
 
     // 2 - Upload the image to Cloud Storage.
@@ -110,7 +120,8 @@ function saveImageMessage(file) {
       // 3 - Generate a public URL for the file.
       return fileSnapshot.ref.getDownloadURL().then((url) => {
 
-        // TODO: Stop the “timer” for the custom trace.
+        // Stop the “timer” for the custom trace.
+        trace.stop();
 
         // 4 - Update the chat message placeholder with the image’s URL.
         return messageRef.update({
