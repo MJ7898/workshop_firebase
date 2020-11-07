@@ -15,14 +15,14 @@
  */
 'use strict';
 
-// Signs-in Friendly Chat.
+// Signs-in PSE DBS Chat.
 function signIn() {
   // Sign in Firebase using popup auth and Google as the identity provider.
   var provider = new firebase.auth.GoogleAuthProvider();
   firebase.auth().signInWithPopup(provider);
 }
 
-// Signs-out of Friendly Chat.
+// Signs-out of PSE DBS Chat.
 function signOut() {
   // Sign out of Firebase.
   firebase.auth().signOut();
@@ -75,7 +75,7 @@ function removeMessage() {
 // Loads chat messages history and listens for upcoming ones.
 function loadMessages() {
   // Create the query to load the last 12 messages and listen for new ones.
-  var query = firebase.firestore().collection('messages').orderBy('timestamp', 'desc').limit(12);
+  var query = firebase.firestore().collection('messages').orderBy('timestamp', 'desc'); //.limit(12);
   
   // Start listening to the query.
   query.onSnapshot(function(snapshot) {
