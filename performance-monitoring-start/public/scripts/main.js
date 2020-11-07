@@ -93,12 +93,16 @@ function saveImageMessage(file) {
   }).then(function(messageRef) {
 
     // TODO: Create custom trace to monitor image upload.
+    const trace = firebase.performance().trace('saveImageMessage');
 
     // TODO: Record image size.
+    trace.putMetric('imageSize', file.size);
 
     // TODO: Record image MIME type.
+    trace.putAttribute('imageType', file.type);
 
     // TODO: Start the “timer” for the custom trace.
+    trace.start();
 
     // 2 - Upload the image to Cloud Storage.
     var filePath = firebase.auth().currentUser.uid + '/' + messageRef.id + '/' + file.name;
