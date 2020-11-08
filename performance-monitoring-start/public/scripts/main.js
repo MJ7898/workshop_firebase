@@ -49,7 +49,7 @@ function isUserSignedIn() {
   return !!firebase.auth().currentUser;
 }
 
-// ToDo: implement save method of Firebase.
+// TODO: implement save method of Firebase.
 // Saves a new message on the Cloud Firestore.
 function saveMessage(messageText) {
   // Add a new message entry to the Firebase database.
@@ -63,13 +63,13 @@ function saveMessage(messageText) {
   });
 }
 
-// ToDo: Implement remove message of Firebase.
+// TODO: Implement remove message of Firebase.
 // Removes a message from the Cloud Firestore.
 function removeMessage() {
 
 }
 
-// ToDo: Implement update message of Firebase. 
+// TODO: Implement update message of Firebase. 
 // Updates a message from the Cloud Firestore.
 
 // Loads chat messages history and listens for upcoming ones.
@@ -379,6 +379,8 @@ var messageListElement = document.getElementById('messages');
 var messageFormElement = document.getElementById('message-form');
 var messageInputElement = document.getElementById('message');
 var submitButtonElement = document.getElementById('submit');
+var deleteButtonElement = document.getElementById('delete');
+var updateButtonElement = document.getElementById('update');
 var imageButtonElement = document.getElementById('submitImage');
 var imageFormElement = document.getElementById('image-form');
 var mediaCaptureElement = document.getElementById('mediaCapture');
@@ -407,7 +409,7 @@ mediaCaptureElement.addEventListener('change', onMediaFileSelected);
 // initialize Firebase
 initFirebaseAuth();
 
-// TODO: Initialize Firebase Performance Monitoring.
+// Initialize Firebase Performance Monitoring.
 
 // We load currently existing chat messages and listen to new ones.
 loadMessages();
