@@ -1,6 +1,6 @@
-# Firebase Codelab: PSE DBS Chat
+# Firebase: PSE DBS Chat
 
-This is the source code for the Firebase PSE DBS Chat codelab. It includes start and end versions of the
+This is the source code for the Firebase PSE DBS Chat. It includes start and end versions of the
 code for Web, Cloud Functions, Performance Monitoring.
 
 ## How to make contributions?

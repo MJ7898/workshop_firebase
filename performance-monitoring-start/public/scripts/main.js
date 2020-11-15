@@ -71,10 +71,27 @@ function removeMessage() {
 
 // TODO: Implement update message of Firebase. 
 // Updates a message from the Cloud Firestore.
+function updateSelectedMessage() {
+  var textMessage = updateLabelElement.value;
+  var TextValue = firebase.firestore().collection('messages').get().then(function(querySnapshot) {
+    querySnapshot.forEach(function(doc) {
+        // doc.data() is never undefined for query doc snapshots
+        if(textMessage == doc.data().text) {
+          console.log(textMessage);
+          console.log(doc.id, " => ", doc.data().text);
+          var textTextMessage =firebase.firestore().collection('message').doc(doc.id);
+          textTextMessage.update({
+            text: textMessage + " was updated successful!"
+          })
+          loadMessages();
+        }
+    });
+  });
+}
 
 // Loads chat messages history and listens for upcoming ones.
 function loadMessages() {
-  // Create the query to load the last 12 messages and listen for new ones.
+  // TODO: Add the Read operation to show all messages in Chat container on web 
   var query = firebase.firestore().collection('messages').orderBy('timestamp', 'desc'); //.limit(12);
   
   // Start listening to the query.
@@ -94,7 +111,7 @@ function loadMessages() {
 // Saves a new message containing an image in Firebase.
 // This first saves the image in Firebase storage.
 function saveImageMessage(file) {
-  // 1 - We add a message with a loading icon that will get updated with the shared image.
+  // TODO: Set the Create operation for the ImageMessage here
   firebase.firestore().collection('messages').add({
     name: getUserName(),
     imageUrl: LOADING_IMAGE_URL,
@@ -379,6 +396,8 @@ var messageListElement = document.getElementById('messages');
 var messageFormElement = document.getElementById('message-form');
 var messageInputElement = document.getElementById('message');
 var submitButtonElement = document.getElementById('submit');
+var updateLabelElement = document.getElementById('messageUpdate');
+var deleteLabelElement = document.getElementById('messageDelete');
 var deleteButtonElement = document.getElementById('delete');
 var updateButtonElement = document.getElementById('update');
 var imageButtonElement = document.getElementById('submitImage');
@@ -394,6 +413,8 @@ var signInSnackbarElement = document.getElementById('must-signin-snackbar');
 messageFormElement.addEventListener('submit', onMessageFormSubmit);
 signOutButtonElement.addEventListener('click', signOut);
 signInButtonElement.addEventListener('click', signIn);
+
+updateButtonElement.addEventListener('click', updateSelectedMessage);
 
 // Toggle for the button.
 messageInputElement.addEventListener('keyup', toggleButton);

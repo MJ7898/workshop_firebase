@@ -108,12 +108,14 @@
         <button id="update" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
           Update msg
         </button>
+        <input class="mdl-textfield__input" type="text" id="messageUpdate" autocomplete="off">
       </div>
       <br>
       <div id="crud-operations-field-delete">  
         <button id="delete"  type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
           Delete msg
         </button>
+        <input class="mdl-textfield__input" type="text" id="messageDelete" autocomplete="off">
       </div>
 
       <div id="must-signin-snackbar" class="mdl-js-snackbar mdl-snackbar">
@@ -136,7 +138,7 @@
 
 <!-- Import the Firebase Performance Monitoring library here. -->
 
-<script src="/__/firebase/init.js"></script>
+<script src="/__/firebase/init.js?useEmulator=true"></script>
 
 <script src="scripts/main.js"></script>
 </body>
