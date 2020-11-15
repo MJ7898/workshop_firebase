@@ -1,16 +1,18 @@
-# Firebase Codelab: FriendlyChat
-
-This is the source code for the Firebase FriendlyChat codelab. It includes start and end versions of the
-code for Web, Cloud Functions, Performance Monitoring. To get started, open the codelab instructions:
-
- - [Firebase Web Codelab](https://codelabs.developers.google.com/codelabs/firebase-web/).
- - [Firebase SDK for Cloud Functions Codelab](https://codelabs.developers.google.com/codelabs/firebase-cloud-functions/).
- - [Firebase Performance Monitoring for Web Codelab](https://codelabs.developers.google.com/codelabs/firebase-perf-mon-web/).
+# Firebase Workshop: PSE DBS Chat
 
 
-## How to make contributions?
-Please read and follow the steps in the [CONTRIBUTING.md](CONTRIBUTING.md)
+Vorbereitungen zum Firebase Workshop im Rahmen der Datenbanksysteme-Vorlesung an der Knowledge Foundation @ Hochschule Reutlingen
 
+# Prerequisites
+- Visual Studio Code
+- Commando-Zeile / Konsole VS Code
+- Browser (Chrome) 
+- Plug-In (Todo Tree in VS Code
+
+## Setting up
+`git clone https://github.com/MJ7898/workshop_firebase.git`
+`cd performance-monitoring-start`
+`firebase serve`
 
 ## License
 See [LICENSE](LICENSE)
