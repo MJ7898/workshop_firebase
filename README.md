@@ -16,7 +16,7 @@ Vorbereitungen zum Firebase Workshop im Rahmen der Datenbanksysteme-Vorlesung an
 #### `localhost:5000`
 
 ## Visit
-`https://console.firebase.google.com/project/chatworkshop-fb012/overview
+https://console.firebase.google.com/project/chatworkshop-fb012/overview
 
 ## License
 See [LICENSE](LICENSE)
