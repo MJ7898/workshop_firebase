@@ -13,6 +13,10 @@ Vorbereitungen zum Firebase Workshop im Rahmen der Datenbanksysteme-Vorlesung an
 #### `git clone https://github.com/MJ7898/workshop_firebase.git`
 #### `cd performance-monitoring-start`
 #### `firebase serve`
+#### `localhost:5000`
+
+## Visit
+`https://console.firebase.google.com/project/chatworkshop-fb012/overview
 
 ## License
 See [LICENSE](LICENSE)
