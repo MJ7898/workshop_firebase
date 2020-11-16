@@ -66,32 +66,34 @@ function saveMessage(messageText) {
 // TODO: Implement remove message of Firebase.
 // Removes a message from the Cloud Firestore.
 function removeMessage() {
-
+  var dataToDelete = deleteLabelElement.value;
+  var textValueToDelete = firebase.firestore().collection('messages').where('text', '==', dataToDelete).limit(1).get().then((query) => {
+    const itemToDelete = query.docs[0];
+    itemToDelete.ref.delete();
+  })
+  console.log('Button was clicked!')
+  alert('Item successfully deleted from Database!')
+  //firebase.firestore().collection('messages').doc(doc.data().id).delete();
 }
 
 // TODO: Implement update message of Firebase. 
 // Updates a message from the Cloud Firestore.
 function updateSelectedMessage() {
   var textMessage = updateLabelElement.value;
-  var TextValue = firebase.firestore().collection('messages').get().then(function(querySnapshot) {
-    querySnapshot.forEach(function(doc) {
-        // doc.data() is never undefined for query doc snapshots
-        if(textMessage == doc.data().text) {
-          console.log(textMessage);
-          console.log(doc.id, " => ", doc.data().text);
-          var textTextMessage =firebase.firestore().collection('message').doc(doc.id);
-          textTextMessage.update({
-            text: textMessage + " was updated successful!"
-          })
-          loadMessages();
-        }
-    });
+  var textValue = firebase.firestore().collection('messages').where('text', '==', textMessage).limit(1).get().then((query) => {
+    const thing = query.docs[0];
+    thing.ref.update({text:"newTest"});
+    console.log(query.docs[0].value);
   });
+        
+  //loadMessages();
+  alert("Item is successfully modified!");
+
 }
 
 // Loads chat messages history and listens for upcoming ones.
 function loadMessages() {
-  // TODO: Add the Read operation to show all messages in Chat container on web 
+  // TODO: Add the Read operation to show all messages in Chat container on web and orderBy -> timestamp
   var query = firebase.firestore().collection('messages').orderBy('timestamp', 'desc'); //.limit(12);
   
   // Start listening to the query.
@@ -415,6 +417,7 @@ signOutButtonElement.addEventListener('click', signOut);
 signInButtonElement.addEventListener('click', signIn);
 
 updateButtonElement.addEventListener('click', updateSelectedMessage);
+deleteButtonElement.addEventListener('click', removeMessage);
 
 // Toggle for the button.
 messageInputElement.addEventListener('keyup', toggleButton);
