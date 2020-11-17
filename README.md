@@ -16,8 +16,9 @@ Vorbereitungen zum Firebase Workshop im Rahmen der Datenbanksysteme-Vorlesung an
 ### Weiteres vorgehen während der Session
 ###### `firebase --version`
 ###### `firebase login`
-##### `cd performance-monitoring-start` oder eigenes
+##### `cd firebase-workshop-session` oder eigenes
 ##### `firebase use --add`
+##### select project `chatworkshop-fb012
 ##### `give an alias`
 #### `firebase serve`
 #### `localhost:5000`
