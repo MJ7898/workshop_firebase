@@ -11,7 +11,13 @@ Vorbereitungen zum Firebase Workshop im Rahmen der Datenbanksysteme-Vorlesung an
 
 ## Setting up
 #### `git clone https://github.com/MJ7898/workshop_firebase.git`
-#### `cd performance-monitoring-start`
+##### Windows `npm install -g firebase-tools`
+##### Mac OS `curl -sL https://firebase.tools | bash` oder `npm install -g firebase-tools`
+### Weiteres vorgehen während der Session
+###### `firebase --version`
+###### `firebase login`
+##### `cd performance-monitoring-start` oder eigenes
+##### `` firebase use --add
 #### `firebase serve`
 #### `localhost:5000`
 
