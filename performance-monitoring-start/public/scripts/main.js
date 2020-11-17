@@ -49,44 +49,34 @@ function isUserSignedIn() {
   return !!firebase.auth().currentUser;
 }
 
-// TODO: implement save method of Firebase.
+// TODO: implement saveMessage method of Firebase.
 // Saves a new message on the Cloud Firestore.
+// used params name, text, profilePicUrl with method getProfilePicUrl(), 
+// timestamp with firebase.firestore.FieldValue.serverTimestamp()
 function saveMessage(messageText) {
   // Add a new message entry to the Firebase database.
-  return firebase.firestore().collection('messages').add({
-    name: getUserName(),
-    text: messageText,
-    profilePicUrl: getProfilePicUrl(),
-    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-  }).catch(function(error) {
+  
+  /*}).catch(function(error) {
     console.error('Error writing new message to Firebase Database', error);
-  });
+  });*/
 }
 
 // TODO: Implement remove message of Firebase.
 // Removes a message from the Cloud Firestore.
+// with an operation to select an specific entry. This entry will be selected on the UI
 function removeMessage() {
   var dataToDelete = deleteLabelElement.value;
-  var textValueToDelete = firebase.firestore().collection('messages').where('text', '==', dataToDelete).limit(1).get().then((query) => {
-    const itemToDelete = query.docs[0];
-    itemToDelete.ref.delete();
-  })
+  // Add method here
   console.log('Button was clicked!')
   alert('Item successfully deleted from Database!')
-  //firebase.firestore().collection('messages').doc(doc.data().id).delete();
 }
 
 // TODO: Implement update message of Firebase. 
 // Updates a message from the Cloud Firestore.
+// with an operation to select an specific entry. This entry will be selected on the UI
 function updateSelectedMessage() {
   var textMessage = updateLabelElement.value;
-  var textValue = firebase.firestore().collection('messages').where('text', '==', textMessage).limit(1).get().then((query) => {
-    const thing = query.docs[0];
-    thing.ref.update({text:"newTest"});
-    console.log(query.docs[0].value);
-  });
-        
-  //loadMessages();
+  // add method here
   alert("Item is successfully modified!");
 
 }
@@ -94,8 +84,8 @@ function updateSelectedMessage() {
 // Loads chat messages history and listens for upcoming ones.
 function loadMessages() {
   // TODO: Add the Read operation to show all messages in Chat container on web and orderBy -> timestamp
-  var query = firebase.firestore().collection('messages').orderBy('timestamp', 'desc'); //.limit(12);
-  
+  var query = // add operation here 
+
   // Start listening to the query.
   query.onSnapshot(function(snapshot) {
     snapshot.docChanges().forEach(function(change) {
@@ -114,12 +104,10 @@ function loadMessages() {
 // This first saves the image in Firebase storage.
 function saveImageMessage(file) {
   // TODO: Set the Create operation for the ImageMessage here
-  firebase.firestore().collection('messages').add({
-    name: getUserName(),
-    imageUrl: LOADING_IMAGE_URL,
-    profilePicUrl: getProfilePicUrl(),
-    timestamp: firebase.firestore.FieldValue.serverTimestamp()
-  }).then(function(messageRef) {
+  // same as message difference ist the imageUrl instead of the text attribute
+ 
+  // optionally you can comment aut this code block, but its not necessary 
+  /*}).then(function(messageRef) {
 
     // Create custom trace to monitor image upload.
     const trace = firebase.performance().trace('saveImageMessage');
@@ -152,7 +140,7 @@ function saveImageMessage(file) {
   }).catch(function(error) {
     console.error('There was an error uploading a file to Cloud Storage:', error);
   });
-}
+}*/
 
 // Saves the messaging device token to the datastore.
 function saveMessagingDeviceToken() {
