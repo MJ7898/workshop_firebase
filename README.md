@@ -18,7 +18,7 @@ Vorbereitungen zum Firebase Workshop im Rahmen der Datenbanksysteme-Vorlesung an
 ###### `firebase login`
 ##### `cd firebase-workshop-session` oder eigenes
 ##### `firebase use --add`
-##### select project `chatworkshop-fb012
+##### select project `chatworkshop-fb012`
 ##### `give an alias`
 #### `firebase serve`
 #### `localhost:5000`
