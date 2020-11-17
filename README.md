@@ -17,7 +17,8 @@ Vorbereitungen zum Firebase Workshop im Rahmen der Datenbanksysteme-Vorlesung an
 ###### `firebase --version`
 ###### `firebase login`
 ##### `cd performance-monitoring-start` oder eigenes
-##### `` firebase use --add
+##### `firebase use --add`
+##### `give an alias`
 #### `firebase serve`
 #### `localhost:5000`
 
