@@ -53,30 +53,25 @@ function isUserSignedIn() {
 // Saves a new message on the Cloud Firestore.
 // used params name, text, profilePicUrl with method getProfilePicUrl(), 
 // timestamp with firebase.firestore.FieldValue.serverTimestamp()
-function saveMessage(messageText) {
+function saveMessage(messageTect) {
   // Add a new message entry to the Firebase database.
-  
-  /*}).catch(function(error) {
-    console.error('Error writing new message to Firebase Database', error);
-  });*/
+
 }
 
 // TODO: Implement remove message of Firebase.
 // Removes a message from the Cloud Firestore.
 // with an operation to select an specific entry. This entry will be selected on the UI
 function removeMessage() {
-  var dataToDelete = deleteLabelElement.value;
-  // Add method here
-  console.log('Button was clicked!')
   alert('Item successfully deleted from Database!')
+  //firebase.firestore().collection('messages').doc(doc.data().id).delete();
 }
 
 // TODO: Implement update message of Firebase. 
 // Updates a message from the Cloud Firestore.
 // with an operation to select an specific entry. This entry will be selected on the UI
 function updateSelectedMessage() {
-  var textMessage = updateLabelElement.value;
-  // add method here
+        
+  //loadMessages();
   alert("Item is successfully modified!");
 
 }
@@ -102,9 +97,11 @@ function loadMessages() {
 
 // Saves a new message containing an image in Firebase.
 // This first saves the image in Firebase storage.
-function saveImageMessage(file) {
   // TODO: Set the Create operation for the ImageMessage here
   // same as message difference ist the imageUrl instead of the text attribute
+  function saveImageMessage(file) {
+    // TODO: Set the Create operation for the ImageMessage here
+}
  
   // optionally you can comment aut this code block, but its not necessary 
   /*}).then(function(messageRef) {
@@ -425,4 +422,4 @@ initFirebaseAuth();
 
 // We load currently existing chat messages and listen to new ones.
 loadMessages();
-}
+
